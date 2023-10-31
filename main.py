@@ -7,7 +7,7 @@ import dicom_viewer
 
 # Load the DICOM images, NIfTI segmentation, and get the slice data with non-zero values
 dicom_path = 'D:/Documentos/Uni/TFG/tfg_attempt/input/file1'
-nifti_path = 'D:/Documentos/Uni/TFG/tfg_attempt/output/brain.nii/brain.nii'
+nifti_path = 'D:/Documentos/Uni/TFG/tfg_attempt/output/brain.nii.gz'
 
 dicom_volume = segmentation.load_dicom(dicom_path)
 nifti_data = segmentation.load_nifti(nifti_path)

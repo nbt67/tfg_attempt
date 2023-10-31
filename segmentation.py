@@ -3,14 +3,19 @@ import nibabel as nib
 import os
 import matplotlib.pyplot as plt
 import numpy as np
+import utils 
 
 
 def load_dicom(dicom_path):
     if dicom_path:
+        if utils.is_zip_file(dicom_path):
+            print(f"The provided path '{dicom_path}' is a zip file. The input must be a folder with DICOM files.")
+            exit(1)
+             
         if not os.path.exists(dicom_path):
             print(f"The DICOM directory '{dicom_path}' does not exist.")
             exit(1)
-
+        
         #Creates a list with all the dicom files 
         dicom_files = [os.path.join(dicom_path, filename) for filename in os.listdir(dicom_path) if filename.endswith('.dcm')]
 
@@ -44,8 +49,20 @@ def load_dicom(dicom_path):
 
 def load_nifti(nifti_path):
     if nifti_path:
+        if utils.is_zip_file(nifti_path):
+            print(f"The provided path '{nifti_path}' is a zip file. The input must be a nifti file.")
+            exit(1)
+             
         if not os.path.exists(nifti_path):
             print(f"The nifti directory '{nifti_path}' does not exist.")
+            exit(1)        
+
+        if not utils.is_nifti_file(nifti_path):
+            print(f"The file is not a nifti file '{nifti_path}'. It must end with nii.gz or nii.")
+            exit(1)        
+
+        if os.path.isdir(nifti_path):
+            print(f"It can't be a directory, it must be a nifti file. '{nifti_path}'")
             exit(1)
 
         # Load the nifti images
