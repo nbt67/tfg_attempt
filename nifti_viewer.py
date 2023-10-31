@@ -1,7 +1,7 @@
 import nibabel as nib
 
 # Load the NIfTI image
-nifti_img = nib.load('D:/Documentos/Uni/TFG/totalSegmentatorAttempt/output/brain.nii/brain.nii')
+nifti_img = nib.load('D:/Documentos/Uni/TFG/tfg_attempt/output/brain.nii/brain.nii')
 
 import matplotlib.pyplot as plt
 
