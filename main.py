@@ -1,31 +1,19 @@
 from totalsegmentator.python_api import totalsegmentator
-import pydicom as dicom
-import matplotlib.pyplot as plt
 import zipfile
 import os
+import segmentation
+import nifti_viewer
+import dicom_viewer
 
-# Has to be a folder with dicom files
-input_path = "./input/file1_2.zip"
-output_path = "./output/Segmentation1"
+# Load the DICOM images, NIfTI segmentation, and get the slice data with non-zero values
+dicom_path = 'D:/Documentos/Uni/TFG/tfg_attempt/input/file1'
+nifti_path = 'D:/Documentos/Uni/TFG/tfg_attempt/output/brain.nii/brain.nii'
 
-# Input and output paths
-input_zip_path = "./input/segmentations.zip"
-output_path = "./output/Segmentation1"
+dicom_volume = segmentation.load_dicom(dicom_path)
+nifti_data = segmentation.load_nifti(nifti_path)
 
-"""
-# Unzip the DICOM files from the ZIP archive to a temporary directory
-temp_dir = "./temp_dicom"
-with zipfile.ZipFile(input_zip_path, 'r') as zip_ref:
-    zip_ref.extractall(temp_dir)
-"""
-# Run the segmentation on the unzipped DICOM files
-totalsegmentator(input_zip_path, output_path)
+#nifti_viewer.nifti_viewer(nifti_data, None)
 
-"""
-# Clean up the temporary directory
-for file in os.listdir(temp_dir):
-    file_path = os.path.join(temp_dir, file)
-    if os.path.isfile(file_path):
-        os.remove(file_path)
-os.rmdir(temp_dir)
-"""
+#dicom_viewer.dicom_viewer(dicom_volume, None)
+
+segmentation.plot_dicom_nifti(dicom_volume, nifti_data)
