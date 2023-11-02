@@ -8,7 +8,7 @@ def dicom_viewer(volume, selected_slice=None):
     if not selected_slice:
         # Display multiple slices as an animation
         plt.figure()
-        print(len(volume))
+        
         for i in range(len(volume)):
             slice_data = volume[i]
 

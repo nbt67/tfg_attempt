@@ -16,4 +16,4 @@ nifti_data = segmentation.load_nifti(nifti_path)
 
 #dicom_viewer.dicom_viewer(dicom_volume, None)
 
-segmentation.plot_dicom_nifti(dicom_volume, nifti_data)
+#segmentation.plot_dicom_nifti(dicom_volume, nifti_data)
