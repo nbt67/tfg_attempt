@@ -12,7 +12,7 @@ nifti_path = 'D:/Documentos/Uni/TFG/tfg_attempt/output/brain.nii.gz'
 dicom_volume = segmentation.load_dicom(dicom_path)
 nifti_data = segmentation.load_nifti(nifti_path)
 
-#nifti_viewer.nifti_viewer(nifti_data, None)
+nifti_viewer.nifti_viewer(nifti_data, None)
 
 #dicom_viewer.dicom_viewer(dicom_volume, None)
 
